@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/counter/views/counter_view.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -17,13 +19,20 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Home View'),
+            Text(
+              'Hello Astro',
+              style: TextStyle(fontSize: 20),
+            ),
             ElevatedButton(
-              onPressed: () {
-                Get.toNamed('/counter');
-              },
-              child: const Text('Counter View'),
-            )
+                onPressed: () {
+                  Get.to(() => CounterView());
+                },
+                child: Text('Counter')),
+            ElevatedButton(
+                onPressed: () {
+                  Get.toNamed('/biodata');
+                },
+                child: Text('Biodata')),
           ],
         ),
       ),
